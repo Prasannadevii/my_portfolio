@@ -1,544 +1,942 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===================== SEO ===================== -->
-<title>Prasanna Devi S | Software Engineer &amp; AI Developer</title>
-<meta name="description" content="Portfolio of Prasanna Devi S — B.Tech Information Technology student at VIT Vellore specializing in Blockchain Technology, with hands-on experience in agentic AI, backend engineering and cloud technologies. Dell Technologies intern.">
-<meta name="keywords" content="Prasanna Devi, Software Engineer, AI Developer, VIT Vellore, Blockchain, Node.js, Machine Learning, Portfolio">
-<meta name="author" content="Prasanna Devi S">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#05060b">
+  <title>Prasannadevi S | Software Engineer & AI Developer</title>
+  <meta name="description" content="Prasannadevi S — Computer Science and Engineering student at VIT Vellore, Dell Technologies intern, and software developer building AI, full-stack and cloud applications.">
+  <meta name="keywords" content="Prasannadevi, Software Engineer, AI Developer, Dell Technologies, VIT Vellore, Full Stack Developer, AWS, Portfolio">
+  <meta name="author" content="Prasannadevi S">
+  <meta name="theme-color" content="#09090f">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Prasanna Devi S | Software Engineer &amp; AI Developer">
-<meta property="og:description" content="B.Tech IT student specializing in Blockchain Technology, AI and Cloud. Explore projects, experience and skills.">
+  <meta property="og:title" content="Prasannadevi S | Software Engineer">
+  <meta property="og:description" content="Explore my projects, technical skills, experience and achievements.">
+  <meta property="og:type" content="website">
 
-<!-- Structured data for search engines -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Prasannadevi S",
-  "jobTitle": "Software Engineer",
-  "email": "mailto:prasannadevi.selvakumar@gmail.com",
-  "telephone": "+91-9080520380",
-  "alumniOf": "Vellore Institute of Technology",
-  "sameAs": [
-    "https://github.com/Prasannadevii",
-    "https://leetcode.com/u/prasannadevi_/",
-    "https://www.linkedin.com/in/prasannadevi-s-17b088369"
-  ]
-}
-</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💠</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="stylesheet.css">
+  <script src="main.js" defer></script>
 </head>
+
 <body>
-
-<!-- Skip link for keyboard / screen-reader users -->
-<a href="#main" class="skip-link">Skip to content</a>
-
-<!-- ===================== PRELOADER ===================== -->
-<div class="loader" id="loader">
-  <div class="loader-mark">PS</div>
-  <div class="loader-bar"><span></span></div>
-</div>
-
-<!-- ===================== AMBIENT NEON GLOW ===================== -->
-<div class="ambient" aria-hidden="true">
-  <div class="glow glow-blue" id="glowBlue"></div>
-  <div class="glow glow-purple" id="glowPurple"></div>
-  <div class="grid-overlay"></div>
-</div>
-
-<!-- ===================== HEADER / NAV ===================== -->
-<header class="header" id="header">
-  <a href="#home" class="brand">Prasanna<span>.</span></a>
-
-  <nav class="nav" id="nav">
-    <a href="#home" class="nav-link active">Home</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#experience" class="nav-link">Experience</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#skills" class="nav-link">Skills</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
-
-  <a href="#contact" class="header-cta">Get in touch</a>
-
-  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-</header>
-
-<main id="main">
-
-  <!-- ===================== HERO ===================== -->
-  <section class="hero section" id="home">
-    <div class="hero-copy">
-      <p class="tagline">Open to software engineering roles</p>
-
-      <h1>
-        Hi, I'm <span class="accent-text">Prasannadevi</span>
-        <br>a software engineer who builds
-        <span class="typed" id="typed" aria-live="polite"></span>
-      </h1>
-
-      <p class="hero-desc">
-        B.Tech Computer Science Engineering student at VIT Vellore, specializing in Blockchain
-        Technology, with hands-on experience across agentic AI, backend systems, cloud
-        infrastructure and data science.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">
-          View my work <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-
-      <div class="hero-socials">
-        <a href="https://www.linkedin.com/in/prasannadevi-s-17b088369" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://github.com/Prasannadevii" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://leetcode.com/u/prasannadevi_/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fa-solid fa-code"></i></a>
-      </div>
-    </div>
-
-    <!-- 3D tilt visual: round avatar, glass badges, orbiting skill icons -->
-    <div class="hero-visual">
-      <div class="tilt-stage" id="tiltStage">
-        <div class="tilt-ring"></div>
-        <div class="tilt-ring tilt-ring--dashed"></div>
-
-        <div class="tilt-card" id="tiltCard">
-          <div class="tilt-photo">
-            <img src="Prasanna_Devi.jpeg" alt="Portrait of Prasanna Devi S" loading="eager">
-          </div>
-
-          <div class="tilt-badge badge-top glass">
-            <strong>9.22</strong>
-            <span>CGPA</span>
-          </div>
-          <div class="tilt-badge badge-bottom glass">
-            <strong>300+</strong>
-            <span>LeetCode</span>
-          </div>
-        </div>
-
-        <div class="orbit-group" id="orbitGroup">
-          <div class="orbit-icon glass" style="--angle:0deg"><i class="fa-brands fa-java"></i></div>
-          <div class="orbit-icon glass" style="--angle:60deg"><i class="fa-brands fa-python"></i></div>
-          <div class="orbit-icon glass" style="--angle:120deg"><i class="fa-brands fa-node-js"></i></div>
-          <div class="orbit-icon glass" style="--angle:180deg"><i class="fa-brands fa-microsoft"></i></div>
-          <div class="orbit-icon glass" style="--angle:240deg"><i class="fa-solid fa-database"></i></div>
-          <div class="orbit-icon glass" style="--angle:300deg"><i class="fa-brands fa-git-alt"></i></div>
-        </div>
-      </div>
-    </div>
-
-    <a href="#about" class="hero-scroll" aria-label="Scroll to About section">
-      <span></span>
-    </a>
-  </section>
-
-
-  <!-- ===================== ABOUT ===================== -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">01.</span> About</h2>
-        <p>The short version of how I got here, and what I care about.</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-photo-wrap">
-          <div class="about-photo">
-            <img src="Prasanna_Devi.jpeg" alt="Prasanna Devi S" loading="lazy">
-          </div>
-        </div>
-
-        <div class="about-text glass card">
-          <p>
-            I'm a Computer Science &amp; Engineering student at VIT Vellore, specializing in
-            Blockchain Technology, currently holding a 9.22 CGPA. Across three internships
-            I've worked on agentic AI for enterprise devices, .NET backend APIs, and applied
-            data science — and I enjoy each of those equally.
-          </p>
-          <p>
-            I'm most interested in the practical middle ground between AI and software
-            engineering: building systems that are reliable, explainable, and actually
-            ship — not just demos.
-          </p>
-
-          <div class="stat-row">
-            <div class="stat"><strong>9.22</strong><span>CGPA</span></div>
-            <div class="stat"><strong>3</strong><span>Internships</span></div>
-            <div class="stat"><strong>300+</strong><span>LeetCode solved</span></div>
-            <div class="stat"><strong>16</strong><span>Parity gaps resolved</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================== EXPERIENCE ===================== -->
-  <section class="section" id="experience">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">02.</span> Experience</h2>
-        <p>Where I've worked, and what I did while I was there.</p>
-      </div>
-
-      <div class="timeline">
-
-        <div class="timeline-item reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content glass tilt-hover">
-            <div class="timeline-top">
-              <div>
-                <h3>Software Engineering Intern</h3>
-                <p class="timeline-company">Dell Technologies &middot; Bengaluru, India</p>
-              </div>
-              <span class="timeline-date">Jun &ndash; Jul 2026</span>
-            </div>
-            <ul>
-              <li>Developed agentic AI solutions for cloud and edge devices to automate BIOS policy creation, configuration monitoring, and system updates.</li>
-              <li>Resolved 16 parity gaps during migration from DCC CLI to DCEC, improving feature consistency and platform reliability.</li>
-              <li>Worked on BIOS configuration, firmware management, and enterprise device administration workflows.</li>
-            </ul>
-            <div class="chip-row">
-              <span>Agentic AI</span><span>Cloud &amp; Edge</span><span>BIOS</span><span>Enterprise Systems</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content glass tilt-hover">
-            <div class="timeline-top">
-              <div>
-                <h3>Software Development Intern</h3>
-                <p class="timeline-company">.NET Backend Development with AI &middot; Remote</p>
-              </div>
-              <span class="timeline-date">2025</span>
-            </div>
-            <ul>
-              <li>Developed AI-enabled backend APIs using the .NET framework for scalable enterprise applications.</li>
-              <li>Implemented automated unit testing to improve software quality and maintainability.</li>
-            </ul>
-            <div class="chip-row">
-              <span>.NET</span><span>AI</span><span>Backend APIs</span><span>Unit Testing</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item reveal">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content glass tilt-hover">
-            <div class="timeline-top">
-              <div>
-                <h3>Data Science with Python Intern</h3>
-                <p class="timeline-company">iamneo &middot; Remote</p>
-              </div>
-              <span class="timeline-date">2025</span>
-            </div>
-            <ul>
-              <li>Performed data preprocessing, visualization, and exploratory analysis using Python, NumPy, and Pandas.</li>
-              <li>Applied machine learning techniques with Scikit-learn for data-driven prediction.</li>
-              <li>Completed the internship with a final evaluation score of 95/100.</li>
-            </ul>
-            <div class="chip-row">
-              <span>Python</span><span>NumPy</span><span>Pandas</span><span>Scikit-learn</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================== PROJECTS ===================== -->
-  <section class="section" id="projects">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">03.</span> Projects</h2>
-        <p>A few things I've built, from cloud infrastructure to explainable AI.</p>
-      </div>
-
-      <div class="projects-grid">
-
-        <article class="project-card glass reveal tilt-hover">
-          <div class="project-visual visual-blue">
-            <i class="fa-solid fa-cloud"></i>
-          </div>
-          <div class="project-body">
-            <p class="project-kicker">Cloud application</p>
-            <h3>Photo Sharing Application</h3>
-            <p>Secure cloud-based photo sharing app using Microsoft Azure for image storage and user authentication, with Blob Storage, App Service and Azure Functions for scalable image management.</p>
-            <div class="chip-row">
-              <span>Azure</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card glass reveal tilt-hover">
-          <div class="project-visual visual-purple">
-            <i class="fa-solid fa-droplet"></i>
-          </div>
-          <div class="project-body">
-            <p class="project-kicker">Full-stack application</p>
-            <h3>Online Blood Bank Management System</h3>
-            <p>Full-stack application for managing blood donors, inventory, hospitals and emergency requests, with CRUD operations and donor registration built on Express.js and MongoDB.</p>
-            <div class="chip-row">
-              <span>Node.js</span><span>Express.js</span><span>MongoDB</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card glass reveal tilt-hover">
-          <div class="project-visual visual-mix">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <div class="project-body">
-            <p class="project-kicker">Machine learning &middot; XAI</p>
-            <h3>Explainable Multimodal Stress Detection</h3>
-            <p>In-progress system detecting stress from text, speech, physiological signals and keystroke dynamics, integrating explainable AI techniques for model transparency.</p>
-            <div class="chip-row">
-              <span>Python</span><span>Machine Learning</span><span>XAI</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================== SKILLS ===================== -->
-  <section class="section" id="skills">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">04.</span> Skills</h2>
-        <p>The languages, tools and subjects I work with most.</p>
-      </div>
-
-      <div class="skills-grid">
-
-        <div class="skill-card glass reveal tilt-hover">
-          <h3><i class="fa-solid fa-terminal"></i> Programming Languages</h3>
-          <div class="chip-row">
-            <span>Java</span><span>Python</span>
-          </div>
-        </div>
-
-        <div class="skill-card glass reveal tilt-hover">
-          <h3><i class="fa-solid fa-microchip"></i> Core Computer Science</h3>
-          <div class="chip-row">
-            <span>OOPS</span><span>Operating Systems</span><span>Computer Networks</span><span>DSA</span>
-          </div>
-        </div>
-
-        <div class="skill-card glass reveal tilt-hover">
-          <h3><i class="fa-solid fa-layer-group"></i> Frontend &amp; Backend</h3>
-          <div class="chip-row">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>Express.js</span>
-          </div>
-        </div>
-
-        <div class="skill-card glass reveal tilt-hover">
-          <h3><i class="fa-solid fa-toolbox"></i> Database, Cloud &amp; Tools</h3>
-          <div class="chip-row">
-            <span>MongoDB</span><span>MySQL</span><span>Microsoft Azure</span><span>Git</span><span>GitHub</span><span>VS Code</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- ===== NEW: 3D interactive skills sphere — drag/swipe to spin ===== -->
-      <div class="skills-sphere-block reveal">
-        <h3 class="skills-sphere-title">Drag the sphere &mdash; every skill, one 3D globe</h3>
-
-        <div class="skills-sphere-scene" id="skillsSphereScene">
-          <div class="skills-sphere" id="skillsSphere">
-            <span class="sphere-tag">Java</span>
-            <span class="sphere-tag">Python</span>
-            <span class="sphere-tag">OOPS</span>
-            <span class="sphere-tag">Operating Systems</span>
-            <span class="sphere-tag">Computer Networks</span>
-            <span class="sphere-tag">DSA</span>
-            <span class="sphere-tag">HTML</span>
-            <span class="sphere-tag">CSS</span>
-            <span class="sphere-tag">JavaScript</span>
-            <span class="sphere-tag">Node.js</span>
-            <span class="sphere-tag">Express.js</span>
-            <span class="sphere-tag">MongoDB</span>
-            <span class="sphere-tag">MySQL</span>
-            <span class="sphere-tag">Microsoft Azure</span>
-            <span class="sphere-tag">Git</span>
-            <span class="sphere-tag">GitHub</span>
-            <span class="sphere-tag">VS Code</span>
-          </div>
-        </div>
-
-        <p class="skills-sphere-hint">Click and drag (or swipe) to spin it yourself</p>
-      </div>
-      <!-- ===== END 3D skills sphere ===== -->
-
-    </div>
-  </section>
-
-
-  <!-- ===================== ACHIEVEMENTS ===================== -->
-  <section class="section section-tight" id="achievements">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">05.</span> Achievements</h2>
-      </div>
-
-      <div class="achieve-grid">
-        <div class="achieve-card glass reveal tilt-hover">
-          <i class="fa-solid fa-medal"></i>
-          <strong>100%</strong>
-          <p>Tuition fee scholarship under the STARS Scheme (2023&ndash;2027)</p>
-        </div>
-        <div class="achieve-card glass reveal tilt-hover">
-          <i class="fa-solid fa-trophy"></i>
-          <strong>97.17%</strong>
-          <p>District topper, Class XII State Board</p>
-        </div>
-        <div class="achieve-card glass reveal tilt-hover">
-          <i class="fa-solid fa-code"></i>
-          <strong>300+</strong>
-          <p>Problems solved on LeetCode</p>
-        </div>
-        <div class="achieve-card glass reveal tilt-hover">
-          <i class="fa-solid fa-chart-line"></i>
-          <strong>95/100</strong>
-          <p>Final score, iamneo Data Science internship</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================== EDUCATION ===================== -->
-  <section class="section section-tight" id="education">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">06.</span> Education</h2>
-      </div>
-
-      <div class="edu-list">
-        <div class="edu-card glass reveal tilt-hover">
-          <span class="edu-year">2023 &ndash; Present</span>
-          <div>
-            <h3>Vellore Institute of Technology, Vellore</h3>
-            <p>B.Tech Information Technology (Blockchain Technology specialization) &middot; CGPA 9.22</p>
-          </div>
-        </div>
-        <div class="edu-card glass reveal tilt-hover">
-          <span class="edu-year">2022 &ndash; 2023</span>
-          <div>
-            <h3>Government Higher Secondary School, Pudukkottai</h3>
-            <p>Class XII, State Board &middot; 97.17% &middot; District Topper</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================== CERTIFICATIONS ===================== -->
-  <section class="section section-tight" id="certifications">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">07.</span> Certifications</h2>
-      </div>
-
-      <div class="cert-grid">
-        <div class="cert-card glass reveal tilt-hover"><i class="fa-solid fa-certificate"></i><span>Software Intern Completion Certificate</span><small>Dell Technologies</small></div>
-        <div class="cert-card glass reveal tilt-hover"><i class="fa-solid fa-certificate"></i><span>Data Science with Python</span><small>iamneo</small></div>
-        <div class="cert-card glass reveal tilt-hover"><i class="fa-solid fa-certificate"></i><span>Full Stack Development</span><small>Coursera</small></div>
-        <div class="cert-card glass reveal tilt-hover"><i class="fa-solid fa-certificate"></i><span>Java Basics</span><small>HackerRank</small></div>
-        <div class="cert-card glass reveal tilt-hover"><i class="fa-solid fa-certificate"></i><span>Python Basics</span><small>HackerRank</small></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===================== CONTACT ===================== -->
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="heading">
-        <h2><span class="num">08.</span> Let's talk</h2>
-        <p>Have an opportunity or a project in mind? I'd love to hear about it.</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-info glass card">
-          <a class="contact-email" href="mailto:prasannadevi.selvakumar@gmail.com">
-            prasannadevi.selvakumar@gmail.com
-          </a>
-          <p class="contact-phone"><i class="fa-solid fa-phone"></i> +91 90805 20380</p>
-          <p class="contact-loc"><i class="fa-solid fa-location-dot"></i> Vellore, Tamil Nadu</p>
-
-          <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/prasannadevi-s-17b088369" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://github.com/Prasannadevii" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://leetcode.com/u/prasannadevi_/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fa-solid fa-code"></i></a>
-          </div>
-        </div>
-
-        <form id="contactForm" class="contact-form glass card" novalidate>
-          <div class="form-row">
-            <label>Name<input type="text" id="cName" placeholder="Your name" required></label>
-            <label>Email<input type="email" id="cEmail" placeholder="you@example.com" required></label>
-          </div>
-          <label>Subject<input type="text" id="cSubject" placeholder="What's this about?" required></label>
-          <label>Message<textarea id="cMessage" rows="5" placeholder="Tell me a bit more..." required></textarea></label>
-          <button type="submit" class="btn btn-primary">
-            Send message <i class="fa-solid fa-paper-plane"></i>
-          </button>
-          <p id="formStatus" role="status"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="container footer-inner">
-    <span class="brand">Prasanna<span>.</span></span>
-
-    <div class="footer-socials">
-      <a href="https://github.com/Prasannadevii" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://leetcode.com/u/prasannadevi_/" target="_blank" rel="noopener noreferrer">LeetCode</a>
-      <a href="https://www.linkedin.com/in/prasannadevi-s-17b088369" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:prasannadevi.selvakumar@gmail.com">Email</a>
-    </div>
-
-    <p>&copy; <span id="year"></span> Prasanna Devi S. Built with care.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Background effects -->
+  <div class="background-effects" aria-hidden="true">
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-grid"></div>
   </div>
-</footer>
 
-<button class="to-top" id="toTop" aria-label="Back to top">
-  <i class="fa-solid fa-arrow-up"></i>
-</button>
+  <!-- Navigation -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <a href="#home" class="logo" aria-label="Prasannadevi home">
+        Prasanna<span>.</span>
+      </a>
 
-<script src="main.js"></script>
+      <button
+        class="menu-toggle"
+        id="menuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="navigation" id="nav" aria-label="Main navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <a
+        class="nav-resume"
+        href="https://drive.google.com/file/d/1bGVpnDCysc-osPadfMl0ZBc3N4VnRumS/view?usp=drive_link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Resume
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =================================================
+         HOME — matches the reference design
+         ================================================= -->
+    <section class="hx section" id="home">
+      <div class="hx-glow hx-glow-blue" aria-hidden="true"></div>
+      <div class="hx-glow hx-glow-purple" aria-hidden="true"></div>
+
+      <div class="hx-copy">
+        <p class="hx-tagline">Open to software engineering roles</p>
+
+        <h1>
+          Hi, I'm <span class="hx-accent">Prasannadevi</span>
+          <br>a software engineer who builds
+          <span class="hx-typed" id="typed" aria-live="polite"></span>
+        </h1>
+
+        <p class="hx-desc">
+          B.Tech Computer Science Engineering student at VIT Vellore, specializing in Blockchain
+          Technology, with hands-on experience across agentic AI, backend systems, cloud
+          infrastructure and data science.
+        </p>
+
+        <div class="hx-actions">
+          <a href="#projects" class="hx-btn hx-btn-primary">
+            View my work <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="hx-btn hx-btn-ghost">Get in touch</a>
+        </div>
+
+        <div class="hx-socials">
+          <a href="https://www.linkedin.com/in/prasannadevi-s-17b088369" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/Prasannadevii" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://leetcode.com/u/prasannadevi_/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fa-solid fa-code"></i></a>
+        </div>
+      </div>
+
+      <!-- 3D tilt visual: round avatar, glass badges, orbiting skill icons -->
+      <div class="hx-visual">
+        <div class="hx-stage" id="tiltStage">
+          <div class="hx-ring"></div>
+          <div class="hx-ring hx-ring-dashed"></div>
+
+          <div class="hx-card" id="tiltCard">
+            <div class="hx-photo">
+              <img src="Prasanna_Devi.jpeg" alt="Portrait of Prasanna Devi S" loading="eager">
+            </div>
+
+            <div class="hx-badge hx-glass hx-badge-top">
+              <strong>9.22</strong>
+              <span>CGPA</span>
+            </div>
+            <div class="hx-badge hx-glass hx-badge-bottom">
+              <strong>300+</strong>
+              <span>LeetCode</span>
+            </div>
+          </div>
+
+          <div class="hx-orbit">
+            <div class="hx-orbit-icon hx-glass" style="--angle:0deg"><i class="fa-brands fa-java"></i></div>
+            <div class="hx-orbit-icon hx-glass" style="--angle:60deg"><i class="fa-brands fa-python"></i></div>
+            <div class="hx-orbit-icon hx-glass" style="--angle:120deg"><i class="fa-brands fa-node-js"></i></div>
+            <div class="hx-orbit-icon hx-glass" style="--angle:180deg"><i class="fa-brands fa-microsoft"></i></div>
+            <div class="hx-orbit-icon hx-glass" style="--angle:240deg"><i class="fa-solid fa-database"></i></div>
+            <div class="hx-orbit-icon hx-glass" style="--angle:300deg"><i class="fa-brands fa-git-alt"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hx-scroll" aria-label="Scroll to About section"><span></span></a>
+    </section>
+
+    <!-- =================================================
+         ABOUT — UPDATED TO MATCH YOUR SCREENSHOT
+         ================================================= -->
+    <section class="section about-section" id="about">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">
+            <span class="gradient-text">01.</span> ABOUT ME
+          </span>
+
+          <h2>
+            A little about
+            <span class="gradient-text">my journey.</span>
+          </h2>
+
+          <p>
+            The short version of how I got here, and what I care about.
+          </p>
+        </div>
+
+        <div class="about-layout">
+
+          <!-- Round portrait -->
+          <div class="about-photo-wrap">
+            <div class="about-photo">
+              <img
+                src="Prasanna_Devi.jpeg"
+                alt="Prasannadevi S"
+                loading="lazy"
+                onerror="this.style.display='none';"
+              >
+            </div>
+          </div>
+
+          <!-- About content -->
+          <div class="about-main card">
+            <p>
+              I'm a Computer Science and Engineering student at VIT Vellore,
+              specializing in Blockchain Technology, currently holding a
+              <span class="gradient-text">9.22 CGPA</span>.
+              Across my internships, I've worked on agentic AI for enterprise
+              devices, .NET backend APIs, and applied data science — and I
+              enjoy each of those equally.
+            </p>
+
+            <p>
+              I'm most interested in the practical middle ground between
+              AI and software engineering: building systems that are
+              <span class="accent-cyan">reliable, explainable, and actually ship</span>
+              — not just demos.
+            </p>
+
+            <div class="stat-row">
+              <div class="stat">
+                <strong>9.22</strong>
+                <span>CGPA</span>
+              </div>
+
+              <div class="stat">
+                <strong>3</strong>
+                <span>Internships</span>
+              </div>
+
+              <div class="stat">
+                <strong>300+</strong>
+                <span>LeetCode solved</span>
+              </div>
+
+              <div class="stat">
+                <strong>16</strong>
+                <span>Parity gaps resolved</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         EXPERIENCE — PRESERVED
+         ================================================= -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">PROFESSIONAL EXPERIENCE</span>
+          <h2>Experience that <span class="gradient-text">moves me forward.</span></h2>
+          <p>Learning from real engineering workflows, testing ideas and solving technical problems.</p>
+        </div>
+
+        <div class="experience-list">
+
+          <article class="experience-card featured-experience">
+            <div class="experience-marker dell-marker">
+              <i class="fa-solid fa-building"></i>
+            </div>
+
+            <div class="experience-content">
+              <div class="experience-header">
+                <div>
+                  <span class="experience-type"><i class="fa-solid fa-indian-rupee-sign"></i> PAID · ONSITE INTERNSHIP</span>
+                  <h3>Software Engineering Intern</h3>
+                  <p class="company-name">Dell Technologies · Bengaluru, India</p>
+                </div>
+                <span class="experience-date">Jun – Jul 2026</span>
+              </div>
+
+              <p>
+                Contributed to agentic AI solutions for cloud and edge
+                devices, focusing on BIOS policy creation, configuration
+                monitoring and system update workflows.
+              </p>
+
+              <ul class="experience-points">
+                <li>Developed agentic AI solutions to automate enterprise device administration workflows.</li>
+                <li>Resolved 16 parity gaps during migration from DCC CLI to DCEC, improving feature consistency and reliability.</li>
+                <li>Gained practical exposure to BIOS configuration, firmware management and enterprise systems.</li>
+              </ul>
+
+              <div class="tag-list">
+                <span>Agentic AI</span>
+                <span>Cloud & Edge</span>
+                <span>BIOS</span>
+                <span>Enterprise Systems</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <div class="experience-marker">
+              <i class="fa-solid fa-code"></i>
+            </div>
+
+            <div class="experience-content">
+              <div class="experience-header">
+                <div>
+                  <span class="experience-type">SOFTWARE DEVELOPMENT</span>
+                  <h3>Software Development Intern</h3>
+                  <p class="company-name">.NET Backend Development with AI · Remote</p>
+                </div>
+                <span class="experience-date">Aug – Dec 2025</span>
+              </div>
+
+              <p>
+                Worked on backend development using .NET, focusing on
+                AI-enabled APIs and software quality.
+              </p>
+
+              <ul class="experience-points">
+                <li>Developed AI-enabled backend APIs for scalable applications.</li>
+                <li>Implemented automated unit testing to improve reliability and maintainability.</li>
+              </ul>
+
+              <div class="tag-list">
+                <span>.NET</span>
+                <span>Backend APIs</span>
+                <span>AI</span>
+                <span>Unit Testing</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         PROJECTS — PRESERVED
+         ================================================= -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">SELECTED WORK</span>
+          <h2>Projects built with <span class="gradient-text">purpose.</span></h2>
+          <p>Explore my applications, source code and live deployments wherever available.</p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <div class="project-art art-career">
+              <div class="project-art-top">
+                <span class="project-number">01 / AI</span>
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
+              <div class="art-illustration">
+                <i class="fa-solid fa-route"></i>
+                <span class="art-node node-one"></span>
+                <span class="art-node node-two"></span>
+                <span class="art-node node-three"></span>
+              </div>
+              <span class="project-status"><span></span> LIVE PROJECT</span>
+            </div>
+
+            <div class="project-info">
+              <span class="project-category">FULL STACK · ARTIFICIAL INTELLIGENCE</span>
+              <h3>AI Career Navigator</h3>
+              <p>
+                An adaptive career guidance platform that assesses technical
+                skills, identifies skill gaps, creates personalized learning
+                roadmaps and offers an AI career mentor.
+              </p>
+              <div class="tag-list">
+                <span>Node.js</span>
+                <span>Express.js</span>
+                <span>MongoDB</span>
+                <span>AI</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Prasannadevii/ai-career-navigator" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+                <a href="https://ai-career-navigator-1-3xyi.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link project-live">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-cloud">
+              <div class="project-art-top">
+                <span class="project-number">02 / CLOUD</span>
+                <i class="fa-solid fa-cloud"></i>
+              </div>
+              <div class="art-illustration">
+                <i class="fa-regular fa-images"></i>
+                <span class="art-cloud-dot"></span>
+              </div>
+              <span class="project-status"><span></span> LIVE PROJECT</span>
+            </div>
+
+            <div class="project-info">
+              <span class="project-category">CLOUD COMPUTING · SERVERLESS</span>
+              <h3>Photo Sharing Application</h3>
+              <p>
+                A cloud-based photo sharing application using AWS storage,
+                authentication and serverless services to support secure
+                image uploads and image processing workflows.
+              </p>
+              <div class="tag-list">
+                <span>AWS S3</span>
+                <span>Lambda</span>
+                <span>Cognito</span>
+                <span>API Gateway</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Prasannadevii/PhotoSharing-Application" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+                <a href="https://photosharing-application.onrender.com/index.html" target="_blank" rel="noopener noreferrer" class="project-link project-live">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-voting">
+              <div class="project-art-top">
+                <span class="project-number">03 / SECURITY</span>
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div class="art-illustration">
+                <i class="fa-solid fa-check-to-slot"></i>
+              </div>
+              <span class="project-status"><span></span> LIVE PROJECT</span>
+            </div>
+
+            <div class="project-info">
+              <span class="project-category">SYSTEMS · NETWORKING · SECURITY</span>
+              <h3>Online Voting Management System</h3>
+              <p>
+                A secure client-server voting platform with concurrency
+                controls, atomic SQLite transactions, TCP socket streaming
+                and real-time observability dashboards.
+              </p>
+              <div class="tag-list">
+                <span>Python</span>
+                <span>Flask</span>
+                <span>SQLite</span>
+                <span>TCP Sockets</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Prasannadevii/Online-Voting-System" target="_blank" rel="noopener noreferrer" class="project-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+                <a href="https://online-voting-system-7x2a.onrender.com" target="_blank" rel="noopener noreferrer" class="project-link project-live">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-blood">
+              <div class="project-art-top">
+                <span class="project-number">04 / FULL STACK</span>
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+              <div class="art-illustration">
+                <i class="fa-solid fa-droplet"></i>
+              </div>
+              <span class="project-status status-code"><span></span> SOURCE AVAILABLE</span>
+            </div>
+
+            <div class="project-info">
+              <span class="project-category">HEALTHCARE · WEB APPLICATION</span>
+              <h3>Online Blood Bank Management System</h3>
+              <p>
+                A full-stack platform designed to organize donor records,
+                blood bank inventory, hospital requests and emergency
+                blood donation workflows.
+              </p>
+              <div class="tag-list">
+                <span>Node.js</span>
+                <span>Express.js</span>
+                <span>MongoDB</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Prasannadevii/Blood-Bank-Management-System" target="_blank" rel="noopener noreferrer" class="project-link project-link-full">
+                  <i class="fa-brands fa-github"></i> View Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-stress">
+              <div class="project-art-top">
+                <span class="project-number">05 / RESEARCH</span>
+                <i class="fa-solid fa-brain"></i>
+              </div>
+              <div class="art-illustration">
+                <i class="fa-solid fa-wave-square"></i>
+                <span class="art-pulse"></span>
+              </div>
+              <span class="project-status status-progress"><span></span> IN DEVELOPMENT</span>
+            </div>
+
+            <div class="project-info">
+              <span class="project-category">MACHINE LEARNING · EXPLAINABLE AI</span>
+              <h3>Multimodal Stress Detection</h3>
+              <p>
+                An explainable AI system exploring stress detection from
+                text, speech, physiological signals and keystroke dynamics,
+                using SHAP and LIME to interpret model predictions.
+              </p>
+              <div class="tag-list">
+                <span>Python</span>
+                <span>Machine Learning</span>
+                <span>Deep Learning</span>
+                <span>SHAP / LIME</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Prasannadevii/Explainable-ai-multimodal-stress-detection" target="_blank" rel="noopener noreferrer" class="project-link project-link-full">
+                  <i class="fa-brands fa-github"></i> View Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-footer">
+          <p>Interested in how I approach problems and build solutions?</p>
+          <a href="https://github.com/Prasannadevii" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Explore All GitHub Repositories
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         SKILLS — PRESERVED
+         ================================================= -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">TECHNICAL TOOLKIT</span>
+          <h2>Skills I use to <span class="gradient-text">build and solve.</span></h2>
+          <p>A focused overview of my programming, computer science and development skills.</p>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill-card">
+            <div class="skill-heading">
+              <span class="skill-icon"><i class="fa-solid fa-terminal"></i></span>
+              <div>
+                <h3>Programming Languages</h3>
+                <p>Writing and understanding code</p>
+              </div>
+            </div>
+            <div class="skill-items">
+              <span>Java</span>
+              <span>Python</span>
+              <span>JavaScript</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-heading">
+              <span class="skill-icon"><i class="fa-solid fa-layer-group"></i></span>
+              <div>
+                <h3>Core Computer Science</h3>
+                <p>Foundations for software engineering</p>
+              </div>
+            </div>
+            <div class="skill-items">
+              <span>Data Structures & Algorithms</span>
+              <span>OOP</span>
+              <span>Operating Systems</span>
+              <span>DBMS</span>
+              <span>Computer Networks</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-heading">
+              <span class="skill-icon"><i class="fa-solid fa-window-maximize"></i></span>
+              <div>
+                <h3>Frontend Development</h3>
+                <p>Building responsive web interfaces</p>
+              </div>
+            </div>
+            <div class="skill-items">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-heading">
+              <span class="skill-icon"><i class="fa-solid fa-server"></i></span>
+              <div>
+                <h3>Backend Development</h3>
+                <p>APIs and application logic</p>
+              </div>
+            </div>
+            <div class="skill-items">
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>.NET</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-heading">
+              <span class="skill-icon"><i class="fa-solid fa-database"></i></span>
+              <div>
+                <h3>Databases</h3>
+                <p>Data storage and management</p>
+              </div>
+            </div>
+            <div class="skill-items">
+              <span>MongoDB</span>
+              <span>MySQL</span>
+              <span>SQLite</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-heading">
+              <span class="skill-icon"><i class="fa-solid fa-cloud"></i></span>
+              <div>
+                <h3>Cloud & Tools</h3>
+                <p>Development and deployment tools</p>
+              </div>
+            </div>
+            <div class="skill-items">
+              <span>AWS</span>
+              <span>Amazon S3</span>
+              <span>AWS Lambda</span>
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>VS Code</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-heading">
+              <span class="skill-icon"><i class="fa-solid fa-brain"></i></span>
+              <div>
+                <h3>AI & Machine Learning</h3>
+                <p>Areas explored through projects</p>
+              </div>
+            </div>
+            <div class="skill-items">
+              <span>Agentic AI</span>
+              <span>Machine Learning</span>
+              <span>Deep Learning</span>
+              <span>Explainable AI</span>
+              <span>SHAP</span>
+              <span>LIME</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================
+         CERTIFICATES — PRESERVED
+         ================================================= -->
+    <section class="section certificates-section" id="certificates">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">RECOGNITION & LEARNING</span>
+          <h2>Milestones worth <span class="gradient-text">celebrating.</span></h2>
+          <p>Academic achievements, professional recognition and certificates listed on my resume.</p>
+        </div>
+
+        <div class="certificate-grid">
+
+          <article class="certificate-card">
+            <div class="certificate-icon dell-cert">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div class="certificate-content">
+              <span class="certificate-type">INDUSTRY EXPERIENCE</span>
+              <h3>Software Intern Certificate</h3>
+              <p>Dell Technologies</p>
+            </div>
+            <i class="fa-solid fa-check-circle certificate-check"></i>
+          </article>
+
+          <article class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="certificate-content">
+              <span class="certificate-type">DEVELOPMENT</span>
+              <h3>Full Stack Development</h3>
+              <p>Coursera</p>
+            </div>
+            <i class="fa-solid fa-award certificate-check"></i>
+          </article>
+
+          <article class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fa-brands fa-java"></i>
+            </div>
+            <div class="certificate-content">
+              <span class="certificate-type">PROGRAMMING</span>
+              <h3>Java Basics</h3>
+              <p>HackerRank</p>
+            </div>
+            <i class="fa-solid fa-award certificate-check"></i>
+          </article>
+
+          <article class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fa-brands fa-aws"></i>
+            </div>
+            <div class="certificate-content">
+              <span class="certificate-type">CLOUD COMPUTING</span>
+              <h3>AWS Cloud Learning</h3>
+              <p>AWS Skill Builder</p>
+            </div>
+            <i class="fa-solid fa-award certificate-check"></i>
+          </article>
+
+        </div>
+
+        <div class="honours-card">
+          <div class="honours-icon"><i class="fa-solid fa-medal"></i></div>
+          <div>
+            <span class="section-label">ACADEMIC HONOURS</span>
+            <h3>100% STARS Merit Scholarship</h3>
+            <p>
+              Awarded a 100% tuition fee scholarship at VIT Vellore
+              under the STARS Scheme, 2023–2027.
+            </p>
+          </div>
+        </div>
+
+        <p class="certificate-note">
+          Certificate cards describe credentials listed on my resume.
+          Individual certificate verification links can be added when available.
+        </p>
+      </div>
+    </section>
+
+    <!-- =================================================
+         CONTACT — UPDATED TO MATCH YOUR SCREENSHOT
+         ================================================= -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">
+            <span class="gradient-text">03.</span> GET IN TOUCH
+          </span>
+          <h2>
+            Let's start a
+            <span class="gradient-text">conversation.</span>
+          </h2>
+          <p>
+            Have an opportunity or an interesting project in mind?
+            I'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+
+          <!-- Contact information -->
+          <div class="contact-info-card">
+
+            <a
+              class="contact-email"
+              href="mailto:prasannadevi.selvakumar@gmail.com"
+            >
+              prasannadevi.selvakumar@gmail.com
+            </a>
+
+            <div class="contact-info-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 90805 20380</span>
+            </div>
+
+            <div class="contact-info-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Vellore, Tamil Nadu</span>
+            </div>
+
+            <a
+              class="contact-resume-link"
+              href="https://drive.google.com/file/d/1bGVpnDCysc-osPadfMl0ZBc3N4VnRumS/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-file-lines"></i>
+              View / download resume
+            </a>
+
+            <div class="contact-socials">
+              <a
+                href="https://www.linkedin.com/in/prasannadevi-s-17b088369"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+
+              <a
+                href="https://github.com/Prasannadevii"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a
+                href="https://leetcode.com/u/prasannadevi_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LeetCode"
+              >
+                <i class="fa-solid fa-code"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://formsubmit.co/prasannadevi.selvakumar@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New message from your portfolio">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_template" value="table">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Name</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail">Email</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input
+                type="text"
+                id="contactSubject"
+                name="subject"
+                placeholder="What's this about?"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea
+                id="contactMessage"
+                name="message"
+                rows="5"
+                placeholder="Tell me a bit more..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="contact-submit">
+              Send message
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <p class="form-note">
+              Your email application is not required; the form uses FormSubmit.
+              The first submission may require email confirmation before messages
+              can be delivered.
+            </p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="#home" class="logo footer-logo">Prasanna<span>.</span></a>
+
+      <p>Designed with purpose. Built with curiosity.</p>
+
+      <div class="footer-socials">
+        <a
+          href="https://github.com/Prasannadevii"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a
+          href="https://leetcode.com/u/prasannadevi_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LeetCode"
+        >
+          <i class="fa-solid fa-code"></i>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/prasannadevi-s-17b088369"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+      </div>
+
+      <span class="copyright">
+        © <span id="year">2026</span> Prasannadevi S. All rights reserved.
+      </span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="toTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
 </body>
 </html>

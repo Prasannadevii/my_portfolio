@@ -1,1433 +1,470 @@
-/* =========================================================
-   PRASANNA DEVI S — PORTFOLIO JS
-   Preloader · nav · scroll reveal · typing effect
-   3D tilt visuals · glow parallax · contact form
-========================================================= */
-
 
 /* =========================================================
-   PRELOADER
-========================================================= */
+   PRASANNADEVI S — PORTFOLIO MAIN.JS
+   Supports the updated Home, About and Contact sections.
+   Preserves existing sections and their interactions.
+   ========================================================= */
 
-const loader = document.getElementById("loader");
+document.addEventListener("DOMContentLoaded", () => {
+  "use strict";
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    loader?.classList.add("hide");
-  }, 500);
-});
+  const $ = (selector, parent = document) =>
+    parent.querySelector(selector);
 
-/* Safety net in case the load event is delayed by slow assets */
-setTimeout(() => {
-  loader?.classList.add("hide");
-}, 2200);
+  const $$ = (selector, parent = document) =>
+    [...parent.querySelectorAll(selector)];
 
+  /* =======================================================
+     1. PAGE LOAD
+     ======================================================= */
 
-/* =========================================================
-   FOOTER YEAR
-========================================================= */
+  document.body.classList.add("page-loaded");
 
-const yearEl = document.getElementById("year");
+  /* =======================================================
+     2. STICKY HEADER
+     ======================================================= */
 
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+  const header = $(".site-header") || $("header");
 
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
-
-menuBtn?.addEventListener("click", () => {
-
-  const isOpen = nav.classList.toggle("open");
-
-  menuBtn.setAttribute(
-    "aria-expanded",
-    String(isOpen)
-  );
-
-  const icon = menuBtn.querySelector("i");
-
-  icon?.classList.toggle("fa-bars");
-  icon?.classList.toggle("fa-xmark");
-
-});
-
-
-document.querySelectorAll(".nav-link").forEach(link => {
-
-  link.addEventListener("click", () => {
-
-    nav?.classList.remove("open");
-
-    menuBtn?.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    const icon = menuBtn?.querySelector("i");
-
-    icon?.classList.remove("fa-xmark");
-    icon?.classList.add("fa-bars");
-
-  });
-
-});
-
-
-/* =========================================================
-   HEADER SCROLL STATE
-   ACTIVE NAV
-   BACK TO TOP
-========================================================= */
-
-const header = document.getElementById("header");
-const toTop = document.getElementById("toTop");
-
-const sections = document.querySelectorAll(
-  "section[id]"
-);
-
-const navLinks = document.querySelectorAll(
-  ".nav-link"
-);
-
-
-function onScroll() {
-
-  header?.classList.toggle(
-    "scrolled",
-    window.scrollY > 40
-  );
-
-  toTop?.classList.toggle(
-    "show",
-    window.scrollY > 500
-  );
-
-
-  const position =
-    window.scrollY + 160;
-
-
-  sections.forEach(section => {
-
-    if (
-      position >= section.offsetTop &&
-      position <
-        section.offsetTop +
-        section.offsetHeight
-    ) {
-
-      const id = section.id;
-
-
-      navLinks.forEach(link => {
-
-        link.classList.toggle(
-          "active",
-          link.getAttribute("href") ===
-          `#${id}`
-        );
-
-      });
-
-    }
-
-  });
-
-}
-
-
-window.addEventListener(
-  "scroll",
-  onScroll,
-  { passive: true }
-);
-
-onScroll();
-
-
-/* =========================================================
-   BACK TO TOP
-========================================================= */
-
-toTop?.addEventListener("click", () => {
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const prefersReducedMotion =
-  window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-
-const revealElements =
-  document.querySelectorAll(".reveal");
-
-
-if (
-  "IntersectionObserver" in window &&
-  !prefersReducedMotion
-) {
-
-  const revealObserver =
-    new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add(
-              "visible"
-            );
-
-            revealObserver.unobserve(
-              entry.target
-            );
-
-          }
-
-        });
-
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-
-  revealElements.forEach(el => {
-
-    revealObserver.observe(el);
-
-  });
-
-} else {
-
-  revealElements.forEach(el => {
-
-    el.classList.add("visible");
-
-  });
-
-}
-
-
-/* =========================================================
-   TYPING EFFECT
-========================================================= */
-
-const typedEl =
-  document.getElementById("typed");
-
-
-const phrases = [
-
-  "reliable software.",
-  "AI-powered tools.",
-  "cloud-native systems.",
-  "clean, tested code."
-
-];
-
-
-let phraseIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-
-function typeLoop() {
-
-  if (
-    !typedEl ||
-    prefersReducedMotion
-  ) {
-    return;
+  function updateHeader() {
+    if (!header) return;
+    header.classList.toggle("scrolled", window.scrollY > 30);
   }
 
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
 
-  const phrase =
-    phrases[phraseIndex];
+  /* =======================================================
+     3. MOBILE NAVIGATION
+     ======================================================= */
 
+  const menuBtn = $("#menuBtn");
+  const nav = $("#nav") || $(".navigation");
 
-  if (!deleting) {
+  function closeMenu() {
+    if (!nav) return;
 
-    charIndex++;
+    nav.classList.remove("open", "active");
 
-    typedEl.textContent =
-      phrase.slice(
-        0,
-        charIndex
-      );
+    if (menuBtn) {
+      menuBtn.setAttribute("aria-expanded", "false");
 
-
-    if (
-      charIndex >=
-      phrase.length
-    ) {
-
-      deleting = true;
-
-      setTimeout(
-        typeLoop,
-        1500
-      );
-
-      return;
+      const icon = $("i, svg", menuBtn);
+      if (icon) {
+        icon.classList.remove("fa-xmark", "fa-times");
+        icon.classList.add("fa-bars");
+      }
     }
-
-
-  } else {
-
-    charIndex--;
-
-    typedEl.textContent =
-      phrase.slice(
-        0,
-        charIndex
-      );
-
-
-    if (charIndex <= 0) {
-
-      deleting = false;
-
-      phraseIndex =
-        (
-          phraseIndex + 1
-        ) %
-        phrases.length;
-
-    }
-
   }
 
+  if (menuBtn && nav) {
+    menuBtn.setAttribute("aria-label", "Toggle navigation");
+    menuBtn.setAttribute("aria-expanded", "false");
 
-  setTimeout(
-    typeLoop,
-    deleting ? 40 : 75
-  );
+    menuBtn.addEventListener("click", () => {
+      const isOpen =
+        nav.classList.contains("open") ||
+        nav.classList.contains("active");
 
-}
+      if (isOpen) {
+        closeMenu();
+      } else {
+        nav.classList.add("open", "active");
+        menuBtn.setAttribute("aria-expanded", "true");
 
-
-if (
-  prefersReducedMotion &&
-  typedEl
-) {
-
-  typedEl.textContent =
-    phrases[0];
-
-} else {
-
-  setTimeout(
-    typeLoop,
-    900
-  );
-
-}
-
-
-/* =========================================================
-   HERO 3D TILT
-   Signature interactive moment
-========================================================= */
-
-const tiltStage =
-  document.getElementById(
-    "tiltStage"
-  );
-
-const tiltCard =
-  document.getElementById(
-    "tiltCard"
-  );
-
-
-if (!prefersReducedMotion) {
-
-
-  /* -------------------------------------------------------
-     HERO TILT
-  ------------------------------------------------------- */
-
-  tiltStage?.addEventListener(
-    "mousemove",
-    event => {
-
-      if (
-        window.innerWidth < 1000 ||
-        !tiltCard
-      ) {
-        return;
-      }
-
-
-      const rect =
-        tiltStage.getBoundingClientRect();
-
-
-      const x =
-        (
-          event.clientX -
-          rect.left
-        ) /
-        rect.width -
-        0.5;
-
-
-      const y =
-        (
-          event.clientY -
-          rect.top
-        ) /
-        rect.height -
-        0.5;
-
-
-      tiltCard.style.transform =
-        `rotateX(${-y * 18}deg) rotateY(${x * 22}deg)`;
-
-    }
-  );
-
-
-  tiltStage?.addEventListener(
-    "mouseleave",
-    () => {
-
-      if (tiltCard) {
-
-        tiltCard.style.transform = "";
-
-      }
-
-    }
-  );
-
-
-  /* -------------------------------------------------------
-     CARD HOVER TILT
-  ------------------------------------------------------- */
-
-  document
-    .querySelectorAll(".tilt-hover")
-    .forEach(card => {
-
-      card.addEventListener(
-        "mousemove",
-        event => {
-
-          if (
-            window.innerWidth < 1000
-          ) {
-            return;
-          }
-
-
-          const rect =
-            card.getBoundingClientRect();
-
-
-          const x =
-            (
-              event.clientX -
-              rect.left
-            ) /
-            rect.width -
-            0.5;
-
-
-          const y =
-            (
-              event.clientY -
-              rect.top
-            ) /
-            rect.height -
-            0.5;
-
-
-          card.style.transform =
-            `perspective(700px) rotateX(${-y * 7}deg) rotateY(${x * 8}deg) translateY(-4px)`;
-
+        const icon = $("i, svg", menuBtn);
+        if (icon) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-xmark");
         }
-      );
-
-
-      card.addEventListener(
-        "mouseleave",
-        () => {
-
-          card.style.transform = "";
-
-        }
-      );
-
+      }
     });
 
+    $$("#nav a, .navigation a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
 
-  /* -------------------------------------------------------
-     AMBIENT GLOW PARALLAX
-  ------------------------------------------------------- */
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
 
-  const glowBlue =
-    document.getElementById(
-      "glowBlue"
-    );
-
-  const glowPurple =
-    document.getElementById(
-      "glowPurple"
-    );
-
-
-  window.addEventListener(
-    "mousemove",
-    event => {
-
+    document.addEventListener("click", (event) => {
       if (
-        window.innerWidth < 1000
+        nav.classList.contains("open") ||
+        nav.classList.contains("active")
       ) {
-        return;
+        if (
+          !nav.contains(event.target) &&
+          !menuBtn.contains(event.target)
+        ) {
+          closeMenu();
+        }
       }
+    });
+  }
 
+  /* =======================================================
+     4. SMOOTH SCROLLING
+     ======================================================= */
 
-      const x =
-        event.clientX /
-        window.innerWidth -
-        0.5;
+  $$('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
 
+      if (!href || href === "#") return;
 
-      const y =
-        event.clientY /
-        window.innerHeight -
-        0.5;
+      const target = $(href);
+      if (!target) return;
 
+      event.preventDefault();
 
-      if (glowBlue) {
+      target.scrollIntoView({
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches
+          ? "auto"
+          : "smooth",
+        block: "start",
+      });
 
-        glowBlue.style.transform =
-          `translate(${x * 50}px, ${y * 50}px)`;
-
+      if (window.location.hash !== href) {
+        history.replaceState(null, "", href);
       }
+    });
+  });
 
+  /* =======================================================
+     5. HERO TYPING ANIMATION
+     ======================================================= */
 
-      if (glowPurple) {
+  const typedElement = $("#typed");
 
-        glowPurple.style.transform =
-          `translate(${x * -40}px, ${y * -40}px)`;
-
-      }
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   CONTACT FORM
-   Client-side only
-========================================================= */
-
-const contactForm =
-  document.getElementById(
-    "contactForm"
-  );
-
-
-const formStatus =
-  document.getElementById(
-    "formStatus"
-  );
-
-
-contactForm?.addEventListener(
-  "submit",
-  event => {
-
-    event.preventDefault();
-
-
-    const fields = [
-
-      document.getElementById(
-        "cName"
-      ),
-
-      document.getElementById(
-        "cEmail"
-      ),
-
-      document.getElementById(
-        "cSubject"
-      ),
-
-      document.getElementById(
-        "cMessage"
-      )
-
+  if (typedElement) {
+    const words = [
+      "AI-powered tools.",
+      "cloud applications.",
+      "intelligent systems.",
+      "reliable software.",
     ];
 
-
-    if (
-      fields.some(
-        field =>
-          !field?.value.trim()
-      )
-    ) {
-
-      if (formStatus) {
-
-        formStatus.textContent =
-          "Please fill in all fields.";
-
-      }
-
-      return;
-    }
-
-
-    if (formStatus) {
-
-      formStatus.textContent =
-        "Message ready — connect a backend or email service to receive submissions.";
-
-    }
-
-
-    contactForm.reset();
-
-
-    setTimeout(() => {
-
-      if (formStatus) {
-
-        formStatus.textContent = "";
-
-      }
-
-    }, 5000);
-
-  }
-);
-
-
-/* =========================================================
-   =========================================================
-   3D SKILLS GLOBE
-   =========================================================
-
-   THIS IS THE ONLY PART MODIFIED FOR THE NEW 3D VISUAL.
-
-   Features:
-   - Proper spherical distribution
-   - Four staggered latitude bands
-   - Large 3D space
-   - Transparent skill labels
-   - Front/back depth
-   - Auto rotation
-   - Mouse drag
-   - Touch/swipe
-   - Momentum
-   - Responsive sizing
-   - Reduced-motion support
-
-========================================================= */
-
-(function () {
-
-
-  /* -------------------------------------------------------
-     GET ELEMENTS
-  ------------------------------------------------------- */
-
-  const scene =
-    document.getElementById(
-      "skillsSphereScene"
-    );
-
-
-  const sphere =
-    document.getElementById(
-      "skillsSphere"
-    );
-
-
-  /* If the skills section doesn't exist,
-     safely stop here. */
-
-  if (
-    !scene ||
-    !sphere
-  ) {
-
-    return;
-
-  }
-
-
-  /* -------------------------------------------------------
-     GET ALL SKILL TAGS
-  ------------------------------------------------------- */
-
-  const tags =
-    Array.from(
-      sphere.querySelectorAll(
-        ".sphere-tag"
-      )
-    );
-
-
-  const count =
-    tags.length;
-
-
-  if (!count) {
-
-    return;
-
-  }
-
-
-  /* -------------------------------------------------------
-     REDUCED MOTION
-  ------------------------------------------------------- */
-
-  const reduceMotion =
-    window.matchMedia(
+    const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    if (reducedMotion) {
+      typedElement.textContent = words[0];
+    } else {
+      let wordIndex = 0;
+      let characterIndex = 0;
+      let deleting = false;
 
-  /* -------------------------------------------------------
-     SPHERE POINTS
-  ------------------------------------------------------- */
+      function typeNextCharacter() {
+        const word = words[wordIndex];
 
-  const points = [];
+        if (!deleting) {
+          characterIndex++;
+          typedElement.textContent = word.slice(0, characterIndex);
 
+          if (characterIndex >= word.length) {
+            deleting = true;
+            window.setTimeout(typeNextCharacter, 1600);
+            return;
+          }
 
-  /* -------------------------------------------------------
-     BUILD TRUE 3D SPHERE
-     
-     Instead of putting every item close together,
-     skills are distributed across four latitude bands.
+          window.setTimeout(typeNextCharacter, 75);
+        } else {
+          characterIndex--;
+          typedElement.textContent = word.slice(0, characterIndex);
 
-     This produces a much more recognizable globe.
-  ------------------------------------------------------- */
+          if (characterIndex <= 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            window.setTimeout(typeNextCharacter, 350);
+            return;
+          }
 
-  function buildPoints() {
-
-
-    points.length = 0;
-
-
-    const bands = [
-
-      {
-        lat: -58,
-        count: 4,
-        offset: 0.0
-      },
-
-      {
-        lat: -20,
-        count: 5,
-        offset: 0.5
-      },
-
-      {
-        lat: 20,
-        count: 5,
-        offset: 0.0
-      },
-
-      {
-        lat: 58,
-        count: 3,
-        offset: 0.5
+          window.setTimeout(typeNextCharacter, 35);
+        }
       }
 
-    ];
+      typeNextCharacter();
+    }
+  }
 
+  /* =======================================================
+     6. SCROLL REVEAL ANIMATIONS
+     ======================================================= */
 
-    bands.forEach(
-      band => {
+  const revealElements = $$(
+    ".reveal, .reveal-left, .reveal-right"
+  );
 
-
-        const lat =
-          band.lat *
-          Math.PI /
-          180;
-
-
-        const y =
-          Math.sin(lat);
-
-
-        const ringRadius =
-          Math.cos(lat);
-
-
-        for (
-          let j = 0;
-          j < band.count;
-          j++
-        ) {
-
-
-          const theta =
-            (
-              (j + band.offset) /
-              band.count
-            ) *
-            Math.PI *
-            2;
-
-
-          points.push({
-
-            x:
-              Math.cos(theta) *
-              ringRadius,
-
-            y:
-              y,
-
-            z:
-              Math.sin(theta) *
-              ringRadius
-
-          });
-
-        }
-
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible", "show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -35px 0px",
       }
     );
 
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("visible", "show");
+    });
+  }
 
-    /* -----------------------------------------------------
-       FALLBACK FOR ADDITIONAL SKILLS
+  /* =======================================================
+     7. ACTIVE NAVIGATION LINK
+     ======================================================= */
 
-       If more skills are added to HTML than the standard
-       latitude bands contain, automatically distribute the
-       remaining skills across the sphere.
-    ----------------------------------------------------- */
+  const sections = $$("main section[id], section[id]");
 
-    for (
-      let i = points.length;
-      i < count;
-      i++
-    ) {
+  const navLinks = $$("#nav a[href^='#'], .navigation a[href^='#']");
 
+  function setActiveLink(id) {
+    navLinks.forEach((link) => {
+      const matches = link.getAttribute("href") === `#${id}`;
 
-      const t =
-        i -
-        points.length;
+      link.classList.toggle("active", matches);
 
+      if (matches) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
 
-      const remaining =
-        Math.max(
-          1,
-          count -
-          points.length
-        );
+  if ("IntersectionObserver" in window && sections.length) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              b.intersectionRatio - a.intersectionRatio
+          );
 
+        if (visibleSections.length) {
+          setActiveLink(visibleSections[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-25% 0px -55% 0px",
+        threshold: [0, 0.1, 0.25, 0.5],
+      }
+    );
 
-      const phi =
-        Math.acos(
-          1 -
-          (
-            2 *
-            (t + 0.5)
-          ) /
-          remaining
-        );
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
+  }
 
+  /* =======================================================
+     8. BACK-TO-TOP BUTTON
+     ======================================================= */
 
-      const theta =
-        t *
-        Math.PI *
-        (
-          3 -
-          Math.sqrt(5)
-        );
+  const toTop = $("#toTop") || $("#backToTop");
 
+  function updateBackToTop() {
+    if (!toTop) return;
 
-      points.push({
+    const show = window.scrollY > 450;
+    toTop.classList.toggle("visible", show);
+    toTop.classList.toggle("show", show);
+    toTop.setAttribute("aria-hidden", String(!show));
+  }
 
-        x:
-          Math.sin(phi) *
-          Math.cos(theta),
+  if (toTop) {
+    updateBackToTop();
 
-        y:
-          Math.cos(phi),
+    window.addEventListener(
+      "scroll",
+      updateBackToTop,
+      { passive: true }
+    );
 
-        z:
-          Math.sin(phi) *
-          Math.sin(theta)
+    toTop.addEventListener("click", (event) => {
+      event.preventDefault();
 
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches
+          ? "auto"
+          : "smooth",
       });
-
-    }
-
+    });
   }
 
+  /* =======================================================
+     9. CONTACT FORM
+     ======================================================= */
 
-  /* -------------------------------------------------------
-     CALCULATE SPHERE RADIUS
-  ------------------------------------------------------- */
+  const contactForm =
+    $("#contactForm") ||
+    $(".contact-form") ||
+    $("#contact form");
 
-  function getRadius() {
-
-
-    const size =
-      Math.min(
-        scene.clientWidth,
-        scene.clientHeight
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      // Keep normal HTML/FormSubmit submission enabled.
+      // Do not preventDefault(): doing so would stop delivery.
+      const submitButton = $(
+        'button[type="submit"], input[type="submit"]',
+        contactForm
       );
 
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        event.preventDefault();
+        return;
+      }
 
-    return Math.max(
-      150,
-      size / 2 - 20
-    );
+      if (submitButton) {
+        submitButton.dataset.originalText =
+          submitButton.tagName === "INPUT"
+            ? submitButton.value
+            : submitButton.textContent;
 
-  }
+        submitButton.disabled = true;
 
-
-  /* -------------------------------------------------------
-     POSITION SKILLS
-  ------------------------------------------------------- */
-
-  function layoutSphere() {
-
-
-    buildPoints();
-
-
-    const radius =
-      getRadius();
-
-
-    tags.forEach(
-      (tag, i) => {
-
-
-        const p =
-          points[i];
-
-
-        if (!p) {
-          return;
+        if (submitButton.tagName === "INPUT") {
+          submitButton.value = "Sending...";
+        } else {
+          submitButton.textContent = "Sending...";
         }
 
+        // Restore the button if submission is cancelled or
+        // the browser stays on this page.
+        window.setTimeout(() => {
+          if (!document.hidden && submitButton.isConnected) {
+            submitButton.disabled = false;
 
-        /* Store original 3D coordinates */
-
-        tag.dataset.x =
-          String(p.x);
-
-        tag.dataset.y =
-          String(p.y);
-
-        tag.dataset.z =
-          String(p.z);
-
-
-        /* -------------------------------------------------
-           Place skill around the sphere.
-           
-           The parent element handles the actual rotation.
-        ------------------------------------------------- */
-
-        tag.style.transform =
-          `translate3d(${p.x * radius}px, ${-p.y * radius}px, ${p.z * radius}px) translate(-50%, -50%)`;
-
+            if (submitButton.tagName === "INPUT") {
+              submitButton.value =
+                submitButton.dataset.originalText || "Send message";
+            } else {
+              submitButton.textContent =
+                submitButton.dataset.originalText || "Send message";
+            }
+          }
+        }, 5000);
       }
-    );
-
+    });
   }
 
+  /* =======================================================
+     10. CURRENT YEAR IN FOOTER
+     ======================================================= */
 
-  /* Initial layout */
+  const yearElement = $("#year");
 
-  layoutSphere();
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
 
+  /* =======================================================
+     11. EXTERNAL LINKS SECURITY
+     ======================================================= */
 
-  /* -------------------------------------------------------
-     RESPONSIVE RESIZE
-  ------------------------------------------------------- */
+  $$('a[target="_blank"]').forEach((link) => {
+    const relValues = new Set(
+      (link.getAttribute("rel") || "")
+        .split(/\s+/)
+        .filter(Boolean)
+    );
 
-  let resizeTimer;
+    relValues.add("noopener");
+    relValues.add("noreferrer");
 
+    link.setAttribute("rel", [...relValues].join(" "));
+  });
 
-  window.addEventListener(
-    "resize",
-    () => {
+  /* =======================================================
+     12. PROFILE IMAGE FALLBACK
+     ======================================================= */
 
+  const profileImages = $$(".hx-photo img, .about-photo");
 
-      clearTimeout(
-        resizeTimer
+  profileImages.forEach((img) => {
+    img.addEventListener("error", () => {
+      img.classList.add("image-unavailable");
+      console.warn(
+        "Profile image could not be loaded. Check the image filename and path."
       );
+    });
+  });
 
+  /* =======================================================
+     13. PROJECT CARD HOVER EFFECT
+     ======================================================= */
 
-      resizeTimer =
-        setTimeout(
-          layoutSphere,
-          150
-        );
+  const projectCards = $$(".project-card");
 
+  projectCards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      card.classList.add("is-hovered");
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("is-hovered");
+    });
+  });
+
+  /* =======================================================
+     14. IMAGE AND LINK ACCESSIBILITY
+     ======================================================= */
+
+  $$("img").forEach((img) => {
+    if (!img.hasAttribute("loading") && !img.closest(".hx-stage")) {
+      img.loading = "lazy";
     }
-  );
 
-
-  /* =======================================================
-     ROTATION STATE
-  ======================================================= */
-
-  let rotX = -12;
-  let rotY = 0;
-
-
-  let velX = 0;
-
-
-  let velY =
-    reduceMotion
-      ? 0
-      : 0.10;
-
-
-  const autoSpeed =
-    velY;
-
-
-  const friction =
-    0.94;
-
-
-  /* -------------------------------------------------------
-     DRAG STATE
-  ------------------------------------------------------- */
-
-  let dragging = false;
-
-
-  let lastPointerX = 0;
-  let lastPointerY = 0;
-
+    if (!img.hasAttribute("decoding")) {
+      img.decoding = "async";
+    }
+  });
 
   /* =======================================================
-     APPLY ROTATION
-  ======================================================= */
+     HOME — 3D TILT (reference design)
+     ======================================================= */
 
-  function applyRotation() {
+  const hxStage = $("#tiltStage");
+  const hxCard = $("#tiltCard");
 
-
-    /* -----------------------------------------------------
-       Rotate the entire 3D globe.
-    ----------------------------------------------------- */
-
-    sphere.style.transform =
-      `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
-
-
-    /* -----------------------------------------------------
-       Convert degrees to radians.
-    ----------------------------------------------------- */
-
-    const rx =
-      rotX *
-      Math.PI /
-      180;
-
-
-    const ry =
-      rotY *
-      Math.PI /
-      180;
-
-
-    const cosX =
-      Math.cos(rx);
-
-
-    const sinX =
-      Math.sin(rx);
-
-
-    const cosY =
-      Math.cos(ry);
-
-
-    const sinY =
-      Math.sin(ry);
-
-
-    /* -----------------------------------------------------
-       DEPTH EFFECT
-
-       Skills closer to the viewer:
-
-       - brighter
-       - more visible
-       - slightly larger
-
-       Skills behind the globe:
-
-       - more transparent
-       - visually farther away
-    ----------------------------------------------------- */
-
-    tags.forEach(
-      (tag, i) => {
-
-
-        const p =
-          points[i];
-
-
-        if (!p) {
-          return;
-        }
-
-
-        /* Rotate around Y */
-
-        const x1 =
-          p.x * cosY +
-          p.z * sinY;
-
-
-        const z1 =
-          -p.x * sinY +
-          p.z * cosY;
-
-
-        /* Rotate around X */
-
-        const y2 =
-          p.y * cosX -
-          z1 * sinX;
-
-
-        const z2 =
-          p.y * sinX +
-          z1 * cosX;
-
-
-        /* -------------------------------------------------
-           Convert Z depth into 0 → 1.
-        ------------------------------------------------- */
-
-        const front =
-          (z2 + 1) / 2;
-
-
-        /* -------------------------------------------------
-           Transparency.
-
-           Rear:
-             approximately 18%
-
-           Front:
-             approximately 80%
-        ------------------------------------------------- */
-
-        const opacity =
-          0.18 +
-          front * 0.62;
-
-
-        /* -------------------------------------------------
-           Depth scale.
-        ------------------------------------------------- */
-
-        const scale =
-          0.84 +
-          front * 0.16;
-
-
-        tag.style.opacity =
-          opacity.toFixed(3);
-
-
-        /* -------------------------------------------------
-           Z-index makes front labels render above rear
-           labels.
-        ------------------------------------------------- */
-
-        tag.style.zIndex =
-          String(
-            Math.round(
-              10 +
-              front * 100
-            )
-          );
-
-
-        tag.style.setProperty(
-          "--sphere-depth-scale",
-          scale.toFixed(3)
-        );
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     POINTER DOWN
-  ======================================================= */
-
-  function onPointerDown(
-    event
+  if (
+    hxStage &&
+    hxCard &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
   ) {
+    hxStage.addEventListener("mousemove", (event) => {
+      if (window.innerWidth < 1000) return;
 
+      const rect = hxStage.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
 
-    dragging = true;
+      hxCard.style.transform =
+        `rotateX(${-y * 18}deg) rotateY(${x * 22}deg)`;
+    });
 
-
-    lastPointerX =
-      event.clientX;
-
-
-    lastPointerY =
-      event.clientY;
-
-
-    /* Stop previous momentum */
-
-    velX = 0;
-    velY = 0;
-
-
-    /* Keep pointer interaction inside the globe */
-
-    scene.setPointerCapture?.(
-      event.pointerId
-    );
-
+    hxStage.addEventListener("mouseleave", () => {
+      hxCard.style.transform = "";
+    });
   }
 
-
-  /* =======================================================
-     POINTER MOVE
-  ======================================================= */
-
-  function onPointerMove(
-    event
-  ) {
-
-
-    if (!dragging) {
-      return;
-    }
-
-
-    const dx =
-      event.clientX -
-      lastPointerX;
-
-
-    const dy =
-      event.clientY -
-      lastPointerY;
-
-
-    /* -----------------------------------------------------
-       Horizontal drag = Y rotation
-    ----------------------------------------------------- */
-
-    rotY +=
-      dx * 0.35;
-
-
-    /* -----------------------------------------------------
-       Vertical drag = X rotation
-    ----------------------------------------------------- */
-
-    rotX -=
-      dy * 0.35;
-
-
-    /* Prevent the globe from completely flipping over */
-
-    rotX =
-      Math.max(
-        -78,
-        Math.min(
-          78,
-          rotX
-        )
-      );
-
-
-    /* -----------------------------------------------------
-       Momentum velocity
-    ----------------------------------------------------- */
-
-    velX =
-      dx * 0.35;
-
-
-    velY =
-      -dy * 0.35;
-
-
-    lastPointerX =
-      event.clientX;
-
-
-    lastPointerY =
-      event.clientY;
-
-  }
-
-
-  /* =======================================================
-     POINTER UP
-  ======================================================= */
-
-  function onPointerUp() {
-
-    dragging = false;
-
-  }
-
-
-  /* =======================================================
-     POINTER EVENTS
-  ======================================================= */
-
-  scene.addEventListener(
-    "pointerdown",
-    onPointerDown
-  );
-
-
-  window.addEventListener(
-    "pointermove",
-    onPointerMove
-  );
-
-
-  window.addEventListener(
-    "pointerup",
-    onPointerUp
-  );
-
-
-  window.addEventListener(
-    "pointercancel",
-    onPointerUp
-  );
-
-
-  /* =======================================================
-     ANIMATION LOOP
-  ======================================================= */
-
-  function tick() {
-
-
-    /* -----------------------------------------------------
-       If the user isn't dragging, continue momentum.
-    ----------------------------------------------------- */
-
-    if (!dragging) {
-
-
-      if (
-        Math.abs(velX) >
-          0.01 ||
-        Math.abs(velY) >
-          0.01
-      ) {
-
-
-        rotY += velX;
-
-        rotX += velY;
-
-
-        rotX =
-          Math.max(
-            -78,
-            Math.min(
-              78,
-              rotX
-            )
-          );
-
-
-        /* Slow momentum down */
-
-        velX *= friction;
-
-        velY *= friction;
-
-
-      } else if (
-        !reduceMotion
-      ) {
-
-
-        /* -------------------------------------------------
-           Automatic slow rotation when stationary.
-        ------------------------------------------------- */
-
-        rotY +=
-          autoSpeed;
-
-      }
-
-    }
-
-
-    /* Update globe */
-
-    applyRotation();
-
-
-    /* Continue animation */
-
-    requestAnimationFrame(
-      tick
-    );
-
-  }
-
-
-  /* First render */
-
-  applyRotation();
-
-
-  /* Start animation */
-
-  requestAnimationFrame(
-    tick
-  );
-
-
-})();
+  console.log("Portfolio JavaScript initialized successfully.");
+});
